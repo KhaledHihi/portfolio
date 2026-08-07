@@ -143,15 +143,6 @@ img {
     }
 }
 
-@keyframes borderRotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
 /* Page load animation */
 .hero-content {
     animation: fadeInUp 1s ease-out;
@@ -216,9 +207,10 @@ img {
     max-width: var(--container-max);
     margin: 0 auto;
     padding: 0 24px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
+    gap: 24px;
 }
 
 .nav-logo {
@@ -234,8 +226,10 @@ img {
     font-weight: 400;
 }
 
+/* Nav menu centered */
 .nav-menu {
     display: flex;
+    justify-content: center;
     gap: 8px;
 }
 
@@ -253,6 +247,34 @@ img {
 .nav-link:hover {
     color: var(--text-primary);
     background: var(--accent-glow);
+}
+
+/* Download CV Button — White bg, black text */
+.nav-cv-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #000000;
+    background: #ffffff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all var(--transition-base);
+    white-space: nowrap;
+}
+
+.nav-cv-btn:hover {
+    background: #e0e0e0;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+}
+
+.cv-icon {
+    width: 18px;
+    height: 18px;
+    stroke: #000000;
 }
 
 /* Hamburger Menu */
@@ -873,6 +895,11 @@ img {
     }
 
     /* Navigation */
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
     .nav-menu {
         position: fixed;
         top: 0;
@@ -899,6 +926,10 @@ img {
         padding: 16px 24px;
         width: 100%;
         text-align: center;
+    }
+
+    .nav-cv-btn {
+        display: none;
     }
 
     .hamburger {
