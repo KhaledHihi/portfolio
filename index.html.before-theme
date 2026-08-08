@@ -7,24 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        (() => {
-            const savedTheme = localStorage.getItem('theme');
-
-            if (savedTheme === 'light' || savedTheme === 'dark') {
-                document.documentElement.dataset.theme = savedTheme;
-                return;
-            }
-
-            const prefersLight = window.matchMedia(
-                '(prefers-color-scheme: light)'
-            ).matches;
-
-            document.documentElement.dataset.theme =
-                prefersLight ? 'light' : 'dark';
-        })();
-    </script>
-
     <link rel="stylesheet" href="style.css">
 <base target="_blank">
 </head>
@@ -67,63 +49,6 @@
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-
-            <button
-                class="theme-toggle"
-                id="theme-toggle"
-                type="button"
-                aria-label="Switch to light mode"
-                title="Switch theme"
-            >
-
-                <!-- Sun icon -->
-                <svg
-                    class="theme-icon theme-icon-sun"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                >
-                    <circle cx="12" cy="12" r="4"></circle>
-
-                    <line x1="12" y1="2" x2="12" y2="4"></line>
-                    <line x1="12" y1="20" x2="12" y2="22"></line>
-
-                    <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line>
-                    <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line>
-
-                    <line x1="2" y1="12" x2="4" y2="12"></line>
-                    <line x1="20" y1="12" x2="22" y2="12"></line>
-
-                    <line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line>
-                    <line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line>
-                </svg>
-
-
-                <!-- Moon icon -->
-                <svg
-                    class="theme-icon theme-icon-moon"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M21 12.79A9 9 0 1 1
-                           11.21 3
-                           7 7 0 0 0
-                           21 12.79z">
-                    </path>
-                </svg>
-
-            </button>
-
             <a href="cv.pdf" download class="nav-cv-btn">
                 <svg class="cv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -518,72 +443,6 @@
     </footer>
 
     <script>
-
-        // ====================================================
-        // Theme switcher
-        // ====================================================
-
-        const themeToggle =
-            document.getElementById('theme-toggle');
-
-
-        function getCurrentTheme() {
-            return document.documentElement.dataset.theme || 'dark';
-        }
-
-
-        function updateThemeButton() {
-
-            const currentTheme = getCurrentTheme();
-
-            if (currentTheme === 'dark') {
-
-                themeToggle.setAttribute(
-                    'aria-label',
-                    'Switch to light mode'
-                );
-
-                themeToggle.title = 'Switch to light mode';
-
-            } else {
-
-                themeToggle.setAttribute(
-                    'aria-label',
-                    'Switch to dark mode'
-                );
-
-                themeToggle.title = 'Switch to dark mode';
-            }
-        }
-
-
-        themeToggle.addEventListener('click', () => {
-
-            const currentTheme = getCurrentTheme();
-
-            const newTheme =
-                currentTheme === 'dark'
-                    ? 'light'
-                    : 'dark';
-
-
-            document.documentElement.dataset.theme =
-                newTheme;
-
-
-            localStorage.setItem(
-                'theme',
-                newTheme
-            );
-
-
-            updateThemeButton();
-        });
-
-
-        updateThemeButton();
-
-
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
 
