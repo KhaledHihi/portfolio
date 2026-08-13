@@ -226,6 +226,8 @@ img { max-width: 100%; display: block; }
 
 .cv-icon { width: 18px; height: 18px; stroke: currentColor; }
 
+.nav-cv-item-mobile { display: none; }
+
 
 
 /* ============================================
@@ -520,10 +522,14 @@ html[data-theme="light"] .github-skill-icon {
     :root { --section-padding: 80px; }
 
     .nav-container { display: flex; justify-content: space-between; }
-    .nav-menu { position: fixed; top: 0; right: -100%; width: 70%; max-width: 300px; height: 100vh; background: var(--bg-secondary); flex-direction: column; align-items: center; justify-content: center; gap: 0; transition: right var(--transition-base); border-left: 1px solid var(--border); padding: 80px 0; }
+    .nav-menu { position: fixed; top: 0; right: -100%; width: 78%; max-width: 320px; height: 100vh; background: var(--bg-secondary); flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 10px; transition: right var(--transition-base); border-left: 1px solid var(--border); padding: 96px 24px 32px; }
     .nav-menu.active { right: 0; }
-    .nav-link { font-size: 1.125rem; padding: 16px 24px; width: 100%; text-align: center; }
+    .nav-menu > li { width: 100%; }
+    .nav-link { display: block; font-size: 1rem; font-weight: 500; padding: 13px 18px; width: 100%; text-align: left; color: var(--text-primary); background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; }
+    .nav-link:hover { background: var(--bg-card-hover); border-color: var(--border-hover); transform: translateX(3px); }
     .nav-cv-btn { display: none; }
+    .nav-cv-item-mobile { display: block; margin-bottom: 22px; }
+    .nav-cv-btn-mobile { display: inline-flex; justify-content: center; width: 100%; padding: 13px 18px; }
     .hamburger { display: block; z-index: 1001; }
 
     .hero { padding: 100px 20px 60px; }
